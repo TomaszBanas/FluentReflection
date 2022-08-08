@@ -2,7 +2,7 @@ name: Pipeline
 
 on:
   push:
-    branches: [ "main", "release/*" ]
+    branches: [ "main", "release" ]
   pull_request:
     branches: [ "main" ]
 
@@ -14,4 +14,5 @@ jobs:
     uses: TomaszBanas/FluentReflection/.github/workflows/test.yml@main
   deploy_app:
     needs: test_app
+    if: github.ref == 'refs/heads/release'
     uses: TomaszBanas/FluentReflection/.github/workflows/deploy.yml@main
