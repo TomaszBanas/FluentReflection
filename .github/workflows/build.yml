@@ -3,9 +3,6 @@ name: Build
 on:
   workflow_call:
 
-  push:
-    branches-ignore: main
-
 jobs:
   build_abstraction:
     runs-on: ubuntu-latest
