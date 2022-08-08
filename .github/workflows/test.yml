@@ -7,7 +7,13 @@ on:
     branches: [ "main" ]
 
 jobs:
+  use-build:
+    uses: https://github.com/TomaszBanas/FluentReflection/.github/workflows/build.yml@main
+    
   test:
+
+    needs: use-build
+
     runs-on: ubuntu-latest
 
     steps:
