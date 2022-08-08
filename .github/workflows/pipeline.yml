@@ -9,9 +9,9 @@ on:
 jobs:
   build_app:
     uses: TomaszBanas/FluentReflection/.github/workflows/build.yml@main
-  test:
+  test_app:
     needs: build_app
     uses: TomaszBanas/FluentReflection/.github/workflows/test.yml@main
-  # deploy:
-  #   needs: test
-  #   uses: TomaszBanas/FluentReflection/.github/workflows/deploy.yml@main
+  deploy_app:
+    needs: test_app
+    uses: TomaszBanas/FluentReflection/.github/workflows/deploy.yml@main
