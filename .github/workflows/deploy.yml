@@ -1,4 +1,4 @@
-name: Test
+name: Deploy
 
 on:
   workflow_call:
@@ -8,7 +8,7 @@ on:
 
 
 jobs:
-  test:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,5 +18,5 @@ jobs:
       with:
         dotnet-version: 6.0.x
 
-    - name: Restore
+    - name: Deploy
       run: echo deploy
