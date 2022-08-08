@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build_abstraction:
+  build:
     - name: Build Abstraction
     runs-on: ubuntu-latest
 
