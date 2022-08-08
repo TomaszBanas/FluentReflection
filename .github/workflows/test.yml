@@ -1,19 +1,14 @@
 name: Test
 
 on:
+  workflow_call:
+
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches-ignore: main
+
 
 jobs:
-  use-build:
-    uses: TomaszBanas/FluentReflection/.github/workflows/build.yml@main
-
   test:
-
-    needs: use-build
-
     runs-on: ubuntu-latest
 
     steps:

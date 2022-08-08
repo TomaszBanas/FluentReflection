@@ -1,0 +1,14 @@
+name: Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build_app:
+    uses: TomaszBanas/FluentReflection/.github/workflows/build.yml@main
+  test:
+    needs: build_app
+    uses: TomaszBanas/FluentReflection/.github/workflows/test.yml@main
