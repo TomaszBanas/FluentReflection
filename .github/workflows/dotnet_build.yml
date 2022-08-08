@@ -21,35 +21,36 @@ jobs:
       run: dotnet restore src/FluentReflection.Abstraction/FluentReflection.Abstraction.csproj --no-restore
     - name: Build
       run: dotnet build src/FluentReflection.Abstraction/FluentReflection.Abstraction.csproj --no-restore
-  build_core:
-    - name: Build Core
-    runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v3
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v2
-      with:
-        dotnet-version: 6.0.x
-    - name: Restore
-      run: dotnet restore src/FluentReflection.Core/FluentReflection.Core.csproj
-    - name: Build
-      run: dotnet build src/FluentReflection.Core/FluentReflection.Core.csproj --no-restore
+  # build_core:
+  #   - name: Build Core
+  #   runs-on: ubuntu-latest
 
-  test:
-    - name: Test
-    runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v3
+  #   - name: Setup .NET
+  #     uses: actions/setup-dotnet@v2
+  #     with:
+  #       dotnet-version: 6.0.x
+  #   - name: Restore
+  #     run: dotnet restore src/FluentReflection.Core/FluentReflection.Core.csproj
+  #   - name: Build
+  #     run: dotnet build src/FluentReflection.Core/FluentReflection.Core.csproj --no-restore
 
-    steps:
-    - uses: actions/checkout@v3
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v2
-      with:
-        dotnet-version: 6.0.x
+  # test:
+  #   - name: Test
+  #   runs-on: ubuntu-latest
 
-    - name: Restore
-      run: dotnet restore test/FluentReflection.CoreTests/FluentReflection.CoreTests.csproj
-    - name: Build Test
-      run: dotnet build test/FluentReflection.CoreTests/FluentReflection.CoreTests.csproj --no-restore
-    - name: Test
-      run: dotnet test test/FluentReflection.CoreTests/FluentReflection.CoreTests.csproj --no-build --verbosity detailed
+  #   steps:
+  #   - uses: actions/checkout@v3
+  #   - name: Setup .NET
+  #     uses: actions/setup-dotnet@v2
+  #     with:
+  #       dotnet-version: 6.0.x
+
+  #   - name: Restore
+  #     run: dotnet restore test/FluentReflection.CoreTests/FluentReflection.CoreTests.csproj
+  #   - name: Build Test
+  #     run: dotnet build test/FluentReflection.CoreTests/FluentReflection.CoreTests.csproj --no-restore
+  #   - name: Test
+  #     run: dotnet test test/FluentReflection.CoreTests/FluentReflection.CoreTests.csproj --no-build --verbosity detailed
