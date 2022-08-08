@@ -1,0 +1,22 @@
+name: Test
+
+on:
+  workflow_call:
+    branches: [ "release/*" ]
+  push:
+    branches-ignore: main
+
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0.x
+
+    - name: Restore
+      run: echo deploy
