@@ -1,0 +1,33 @@
+name: Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0.x
+    - name: Build Abstraction
+      run: 
+        dotnet restore src/FluentReflection.Abstraction/FluentReflection.Abstraction.csproj --no-restore
+        dotnet build src/FluentReflection.Abstraction/FluentReflection.Abstraction.csproj --no-restore
+    - name: Build Core
+      run: 
+        dotnet restore src/FluentReflection.Core/FluentReflection.Core.csproj
+        dotnet build src/FluentReflection.Core/FluentReflection.Core.csproj --no-restore
+    - name: Build Test
+      run: 
+        dotnet restore test/FluentReflection.CoreTests/FluentReflection.CoreTests.csproj
+        dotnet build test/FluentReflection.CoreTests/FluentReflection.CoreTests.csproj --no-restore
+    - name: Test
+      run: dotnet test test/FluentReflection.CoreTests/FluentReflection.CoreTests.csproj --no-build --verbosity detailed
