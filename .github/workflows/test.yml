@@ -8,8 +8,8 @@ on:
 
 jobs:
   use-build:
-    uses: https://github.com/TomaszBanas/FluentReflection/.github/workflows/build.yml@main
-    
+    uses: TomaszBanas/FluentReflection/.github/workflows/build.yml@main
+
   test:
 
     needs: use-build
