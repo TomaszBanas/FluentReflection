@@ -7,8 +7,6 @@ on:
     branches: [ "main" ]
 
 jobs:
-  use-build:
-    uses: https://github.com/TomaszBanas/FluentReflection/.github/workflows/build.yml@main
   test:
     runs-on: ubuntu-latest
 
