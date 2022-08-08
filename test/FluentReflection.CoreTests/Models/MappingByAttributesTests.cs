@@ -19,11 +19,6 @@ namespace FluentReflection.Core.Models.Tests
             var name1 = test.Name;
             var name2 = test.Name;
             var name3 = test.Name;
-
-            
-            //    .Properties.Where(x => x.Attributes.Has<TestAttribute>(att => att.SomeIntValue >= 2));
-
-            //typeof(ClassWithAttributes).AsFluentReflection().Properties.Where(x => x.Attributes.Contains(TestAttribute, att => att.SomeIntValue >= 2));
         }
     }
 }
