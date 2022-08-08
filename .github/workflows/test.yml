@@ -1,0 +1,27 @@
+name: Test
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  use-build:
+    uses: https://github.com/TomaszBanas/FluentReflection/.github/workflows/build.yml@main
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0.x
+
+    - name: Restore
+      run: dotnet restore test/FluentReflection.CoreTests/FluentReflection.CoreTests.csproj
+    - name: Build Test
+      run: dotnet build test/FluentReflection.CoreTests/FluentReflection.CoreTests.csproj --no-restore
+    - name: Test
+      run: dotnet test test/FluentReflection.CoreTests/FluentReflection.CoreTests.csproj --no-build --verbosity detailed
