@@ -1,6 +1,6 @@
 ﻿namespace FluentReflection.TestData.TestData.Models
 {
-    public class PrivateClass
+    internal class InternalClass
     {
         private int Value { get; set; }
 

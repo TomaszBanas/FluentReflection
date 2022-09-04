@@ -17,7 +17,7 @@ namespace FluentReflection.CoreTests.Models
         {
             var model = new ClassWithAttributes();
             var test = model.AsFluentReflection();
-            test.Name.Should().Be("ClassWithAttributes");
+            test.Type.Name.Should().Be("ClassWithAttributes");
         }
     }
 }

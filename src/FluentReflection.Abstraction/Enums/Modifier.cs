@@ -13,6 +13,11 @@ namespace FluentReflection.Abstraction.Enums
         Static = 8,
         Const = 16,
         Readonly = 32,
-        Async = 64
+        Async = 64,
+        Virtual = 128,
+        Abstract = 256,
+        Internal = 512,
+        Sealed = 1024,
+        Constructor = 2048,
     }
 }

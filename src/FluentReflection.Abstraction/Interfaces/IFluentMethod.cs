@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 
 namespace FluentReflection.Abstraction.Interfaces
 {
-    public interface IFluentMethod : IFluentElement // TODO: implement class IFluentMethod
+    public interface IFluentMethod : IFluentElement
     {
-        Type ReturnType { get; }
-        IEnumerable<IFluentParameter> Parameters { get; }
+        string Name { get; }
+        IFluentType ReturnType { get; }
+        List<IFluentParameter> Parameters { get; }
         object Invoke(params object[] parameters);
         Task<object> InvokeAsync(params object[] parameters);
     }

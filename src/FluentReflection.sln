@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentReflection.Abstractio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentReflection.CoreTests", "..\test\FluentReflection.CoreTests\FluentReflection.CoreTests.csproj", "{FC9EC26A-FB06-42B0-ABB6-72529CA9753C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentReflection.Json.Schema", "FluentReflection.Json.Schema\FluentReflection.Json.Schema.csproj", "{B95972B0-12D9-47AF-95B0-722D7AB25DCD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentReflection.Console", "FluentReflection.Console\FluentReflection.Console.csproj", "{BF7DDAE9-365E-4BFE-A194-C0C6DE0E2F55}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{FC9EC26A-FB06-42B0-ABB6-72529CA9753C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC9EC26A-FB06-42B0-ABB6-72529CA9753C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC9EC26A-FB06-42B0-ABB6-72529CA9753C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B95972B0-12D9-47AF-95B0-722D7AB25DCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B95972B0-12D9-47AF-95B0-722D7AB25DCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B95972B0-12D9-47AF-95B0-722D7AB25DCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B95972B0-12D9-47AF-95B0-722D7AB25DCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF7DDAE9-365E-4BFE-A194-C0C6DE0E2F55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF7DDAE9-365E-4BFE-A194-C0C6DE0E2F55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF7DDAE9-365E-4BFE-A194-C0C6DE0E2F55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF7DDAE9-365E-4BFE-A194-C0C6DE0E2F55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

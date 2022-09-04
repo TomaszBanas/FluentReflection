@@ -7,8 +7,10 @@ namespace FluentReflection.Abstraction.Interfaces
 {
     public interface IFluentElement
     {
-        string Name { get; }
+        IFluentType Type { get; }
         IFluentModifier Modifier { get; }
-        IEnumerable<IFluentAttribute> Attributes { get; }
+        List<IFluentAttribute> Attributes { get; }
+
+        bool HasAttribute<T>(Func<T, bool> filter = null) where T : Attribute;
     }
 }

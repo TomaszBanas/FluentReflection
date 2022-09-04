@@ -7,6 +7,8 @@ namespace FluentReflection.Core.Utils
 {
     internal class CacheUtility
     {
+        internal static CacheUtility Instance = new CacheUtility();
+
         private ConcurrentDictionary<long, ICacheItem> _cache = new ConcurrentDictionary<long, ICacheItem>();
 
         public T Value<T>(Func<T> action) where T : class

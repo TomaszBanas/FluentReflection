@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FluentReflection.TestData.TestData.Attributes
 {
-    internal class TestAttribute : Attribute
+    internal class Test2Attribute : Attribute
     {
         public string? SomeDataCode { get; set; }
         public int SomeIntValue { get; set; }

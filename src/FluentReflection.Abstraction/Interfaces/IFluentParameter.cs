@@ -4,8 +4,9 @@ using System.Text;
 
 namespace FluentReflection.Abstraction.Interfaces
 {
-    public interface IFluentParameter : IFluentElement// TODO: implement class IFluentParameter
+    public interface IFluentParameter : IFluentElement
     {
-        Type Type { get; }
+        string Name { get; }
+        IFluentType Type { get; }
     }
 }

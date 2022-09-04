@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FluentReflection.Abstraction.Interfaces
 {
-    public interface IFluentModifier // TODO: implement class IFluentModifier
+    public interface IFluentModifier
     {
         Modifier Modifiers { get; }
     }
