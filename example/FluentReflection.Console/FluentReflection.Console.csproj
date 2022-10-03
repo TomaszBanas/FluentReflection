@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<Import Project="../../src/FluentReflection.Assembly.EmbeddedResource.SourceGenerator/build/FluentReflection.Assembly.EmbeddedResource.SourceGenerator.props" />
+
+	<ItemGroup>
+		<None Remove="test1.json" />
+		<None Remove="test2.json" />
+		<None Remove="test3.json" />
+		<None Remove="test4.json" />
+		<None Remove="test5.json" />
+		<None Remove="test6.json" />
+		<None Remove="test7.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="test3.json" />
+		<EmbeddedResource Include="test7.json" />
+		<EmbeddedResource Include="test6.json" />
+		<EmbeddedResource Include="test5.json" />
+		<EmbeddedResource Include="test4.json" />
+		<EmbeddedResource Include="test2.json" />
+		<EmbeddedResource Include="test1.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\src\FluentReflection.Assembly.EmbeddedResource.SourceGenerator\FluentReflection.Assembly.EmbeddedResource.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+		<ProjectReference Include="..\FluentReflection.Console.Lib\FluentReflection.Console.Lib.csproj" />
+	</ItemGroup>
+
+</Project>

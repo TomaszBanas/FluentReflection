@@ -13,6 +13,18 @@ namespace FluentReflection.Core.Models
             _instance = instance;
         }
         public string Name => _instance.GetType().Name;
-        public Attribute GetInstance() => _instance;
+
+        public bool Is<T>(Func<T, bool>? filter = null) where T : Attribute
+        {
+            if (filter == null)
+                return Name == typeof(T).Name;
+
+            return _instance is T t && filter(t);
+        }
+
+        public T? As<T>() where T : Attribute
+        {
+            return _instance as T;
+        }
     }
 }

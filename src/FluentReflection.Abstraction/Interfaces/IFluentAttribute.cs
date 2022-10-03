@@ -7,6 +7,7 @@ namespace FluentReflection.Abstraction.Interfaces
     public interface IFluentAttribute
     {
         string Name { get; }
-        Attribute GetInstance();
+        bool Is<T>(Func<T, bool>? filter = null) where T : Attribute;
+        T? As<T>() where T : Attribute;
     }
 }

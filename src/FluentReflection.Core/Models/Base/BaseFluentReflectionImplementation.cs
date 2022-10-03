@@ -21,7 +21,7 @@ namespace FluentReflection.Core.Models.Base
             _type = type;
         }
 
-        public IFluentType Type => new FluentType(MemberInfo);
+        public new IFluentType Type => new FluentType(MemberInfo);
         internal override MemberInfo MemberInfo => _type;
         public List<IFluentProperty> Properties => _cacheUtility.Value(GetProperties);
         public List<IFluentMethod> Methods => _cacheUtility.Value(GetMethods);

@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace FluentReflection.CoreTests.Models
+namespace FluentReflection.CoreTests.Tests
 {
     public class FluentReflectionModifiersTests
     {
@@ -17,7 +17,7 @@ namespace FluentReflection.CoreTests.Models
         public void InternalClassModifiersIsCorrect()
         {
             var model = new InternalClass();
-            var test = model.AsFluentReflection();
+            var test = model.AsReflection();
             test.Modifier.Modifiers.HasFlag(Modifier.Internal).Should().BeTrue();
             test.Modifier.Modifiers.HasFlag(Modifier.Public).Should().BeFalse();
         }
@@ -25,7 +25,7 @@ namespace FluentReflection.CoreTests.Models
         [Fact()]
         public void InternalStaticClassModifiersIsCorrect()
         {
-            var test = ReflectionExtensions.AsFluentReflectionStatic(typeof(InternalStaticClass));
+            var test = ReflectionExtensions.Reflect(typeof(InternalStaticClass));
             test.Modifier.Modifiers.HasFlag(Modifier.Internal).Should().BeTrue();
             test.Modifier.Modifiers.HasFlag(Modifier.Static).Should().BeTrue();
             test.Modifier.Modifiers.HasFlag(Modifier.Public).Should().BeFalse();

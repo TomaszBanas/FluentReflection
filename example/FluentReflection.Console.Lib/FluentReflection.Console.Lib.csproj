@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<Import Project="../../src/FluentReflection.Assembly.EmbeddedResource.SourceGenerator/build/FluentReflection.Assembly.EmbeddedResource.SourceGenerator.props" />
+
+	<ItemGroup>
+		<None Remove="testdep2.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="testdep2.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\src\FluentReflection.Assembly.EmbeddedResource.SourceGenerator\FluentReflection.Assembly.EmbeddedResource.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+	</ItemGroup>
+
+</Project>

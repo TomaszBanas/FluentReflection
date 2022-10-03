@@ -38,12 +38,6 @@ namespace FluentReflection.Core.Models.Base
             return attributes.Select(x => x as Attribute).Where(x => x != null).Select(x => new FluentAttribute(x)).Cast<IFluentAttribute>().ToList();
         }
 
-        public bool HasAttribute<T>(Func<T, bool>? filter = null) where T : Attribute
-        {
-            if (filter == null)
-                return Attributes.Any(x => x.Name == typeof(T).Name);
-
-            return Attributes.Any(x => x.GetInstance() is T t && filter(t));
-        }
+        public bool HasAttribute<T>(Func<T, bool>? filter = null) where T : Attribute => Attributes.Any(x => x.Is<T>(filter));
     }
 }

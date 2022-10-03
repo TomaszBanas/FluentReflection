@@ -7,6 +7,5 @@ namespace FluentReflection.Abstraction.Interfaces
     public interface IFluentParameter : IFluentElement
     {
         string Name { get; }
-        IFluentType Type { get; }
     }
 }

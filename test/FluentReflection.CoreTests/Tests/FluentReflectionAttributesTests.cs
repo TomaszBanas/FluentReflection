@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace FluentReflection.CoreTests.Models
+namespace FluentReflection.CoreTests.Tests
 {
     public class FluentReflectionAttributesTests
     {
@@ -18,7 +18,7 @@ namespace FluentReflection.CoreTests.Models
         public void ClassWithAttributesIsCorrect()
         {
             var model = new ClassWithAttributes();
-            var test = model.AsFluentReflection();
+            var test = model.AsReflection();
             test.Attributes.Should().NotBeNull();
             test.Attributes.Should().HaveCount(4);
         }
@@ -27,7 +27,7 @@ namespace FluentReflection.CoreTests.Models
         public void ClassWithAttributesSelection()
         {
             var model = new ClassWithAttributes();
-            var test = model.AsFluentReflection();
+            var test = model.AsReflection();
             var properties = test.Properties.Where(x => x.HasAttribute<Test2Attribute>() || x.HasAttribute<TestAttribute>()).ToList();
             properties.Should().NotBeNull();
             properties.Should().HaveCount(3);

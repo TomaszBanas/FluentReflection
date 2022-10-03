@@ -8,6 +8,5 @@ namespace FluentReflection.Abstraction.Interfaces
     {
         string Name { get; }
         object Value { get; set; }
-        IFluentType Type { get; }
     }
 }

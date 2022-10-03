@@ -6,11 +6,11 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 
-namespace FluentReflection.Core.Models.Static
+namespace FluentReflection.Core.Models.Class
 {
-    internal class StaticFluentProperty : BaseFluentProperty
+    internal class ClassFluentProperty : BaseFluentProperty
     {
-        public StaticFluentProperty(PropertyInfo propertyInfo, CacheUtility? cacheUtility = null) : base(propertyInfo, cacheUtility) { }
+        public ClassFluentProperty(PropertyInfo propertyInfo, CacheUtility? cacheUtility = null) : base(propertyInfo, cacheUtility) { }
 
         public override object Value
         {

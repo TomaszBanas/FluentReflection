@@ -18,7 +18,7 @@ namespace FluentReflection.Core.Models.Base
             _propertyInfo = propertyInfo;
         }
         public string Name => _propertyInfo.Name;
-        public IFluentType Type => new FluentType(_propertyInfo.PropertyType);
+        public new IFluentType Type => new FluentType(_propertyInfo.PropertyType);
         internal override MemberInfo MemberInfo => _propertyInfo;
         public abstract object Value { get; set; }
     }

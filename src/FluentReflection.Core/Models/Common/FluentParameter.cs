@@ -16,9 +16,9 @@ namespace FluentReflection.Core.Models.Common
         {
             _parameterInfo = parameterInfo;
         }
-        public string Name => _parameterInfo.Name;
+        public string Name => string.IsNullOrWhiteSpace(_parameterInfo.Name) ? "not_implemented": _parameterInfo.Name;
 
-        public IFluentType Type => new FluentType(_parameterInfo.ParameterType);
+        public new IFluentType Type => new FluentType(_parameterInfo.ParameterType);
         internal override MemberInfo MemberInfo => _parameterInfo.Member;
     }
 }

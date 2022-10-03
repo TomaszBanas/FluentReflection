@@ -6,11 +6,11 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FluentReflection.Core.Models.Static
+namespace FluentReflection.Core.Models.Class
 {
-    internal class StaticFluentMethod : BaseFluentMethod
+    internal class ClassFluentMethod : BaseFluentMethod
     {
-        public StaticFluentMethod(MethodInfo methodInfo, CacheUtility? cacheUtility = null) : base(methodInfo, cacheUtility) { }
+        public ClassFluentMethod(MethodInfo methodInfo, CacheUtility? cacheUtility = null) : base(methodInfo, cacheUtility) { }
 
         public override object Invoke(params object[] parameters)
         {

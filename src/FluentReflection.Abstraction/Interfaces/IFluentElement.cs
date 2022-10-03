@@ -10,7 +10,6 @@ namespace FluentReflection.Abstraction.Interfaces
         IFluentType Type { get; }
         IFluentModifier Modifier { get; }
         List<IFluentAttribute> Attributes { get; }
-
-        bool HasAttribute<T>(Func<T, bool> filter = null) where T : Attribute;
+        bool HasAttribute<T>(Func<T, bool>? filter = null) where T : Attribute;
     }
 }

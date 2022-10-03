@@ -7,7 +7,6 @@ namespace FluentReflection.Abstraction
 {
     public interface IFluentReflection : IFluentElement
     {
-        IFluentType Type { get; }
         List<IFluentProperty> Properties { get; }
         List<IFluentMethod> Methods { get; }
     }

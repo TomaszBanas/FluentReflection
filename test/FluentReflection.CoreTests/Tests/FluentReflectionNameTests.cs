@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace FluentReflection.CoreTests.Models
+namespace FluentReflection.CoreTests.Tests
 {
     public class FluentReflectionNameTests
     {
@@ -16,7 +16,7 @@ namespace FluentReflection.CoreTests.Models
         public void NamePropertyIsCorrect()
         {
             var model = new ClassWithAttributes();
-            var test = model.AsFluentReflection();
+            var test = model.AsReflection();
             test.Type.Name.Should().Be("ClassWithAttributes");
         }
     }
