@@ -8,14 +8,14 @@ on:
 
 jobs:
   Build:
-    uses: TomaszBanas/FluentReflection/.github/workflows/fluent_reflection_lib/build.yml@main
+    uses: TomaszBanas/FluentReflection/.github/workflows/build.yml@main
   Test:
     needs: build_app
-    uses: TomaszBanas/FluentReflection/.github/workflows/fluent_reflection_lib/test.yml@main
+    uses: TomaszBanas/FluentReflection/.github/workflows/test.yml@main
   Deploy:
     needs: test_app
     if: github.ref == 'refs/heads/release'
-    uses: TomaszBanas/FluentReflection/.github/workflows/fluent_reflection_lib/deploy.yml@main
+    uses: TomaszBanas/FluentReflection/.github/workflows/deploy.yml@main
 
 
 
