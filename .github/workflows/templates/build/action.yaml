@@ -35,11 +35,6 @@ runs:
   - name: Say hello
     shell: pwsh
     run: echo Hello from Octo Organization
-  - name: Setup .NET
-    shell: pwsh
-    uses: actions/setup-dotnet@v2
-    with:
-      dotnet-version: 6.0.x
   - name: Restore
     shell: pwsh
     run: dotnet restore src/FluentReflection.Abstraction/FluentReflection.Abstraction.csproj
