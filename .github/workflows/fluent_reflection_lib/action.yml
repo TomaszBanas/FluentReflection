@@ -1,5 +1,8 @@
 name: FluentReflectionLib
 
+on:
+  workflow_call:
+
 jobs:
   Build:
     uses: TomaszBanas/FluentReflection/.github/workflows/fluent_reflection_lib/build.yml@main

@@ -1,5 +1,8 @@
 name: SourceGen
 
+on:
+  workflow_call:
+
 jobs:
   Build:
     uses: TomaszBanas/FluentReflection/.github/workflows/embedded_source_gen/build.yml@main
