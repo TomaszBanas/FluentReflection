@@ -5,21 +5,21 @@ on:
 
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v3
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v2
-      with:
-        dotnet-version: 6.0.x
+  runs-on: ubuntu-latest
 
-    - name: Restore
-      run: dotnet restore test/FluentReflection.CoreTests/FluentReflection.CoreTests.csproj
+  steps:
+  - uses: actions/checkout@v3
+  - name: Setup .NET
+    uses: actions/setup-dotnet@v2
+    with:
+      dotnet-version: 6.0.x
 
-    - name: Build Tests
-      run: dotnet build test/FluentReflection.CoreTests/FluentReflection.CoreTests.csproj --no-restore
+  - name: Restore
+    run: dotnet restore test/FluentReflection.CoreTests/FluentReflection.CoreTests.csproj
 
-    - name: Run Tests
-      run: dotnet test test/FluentReflection.CoreTests/FluentReflection.CoreTests.csproj --no-build --verbosity detailed
+  - name: Build Tests
+    run: dotnet build test/FluentReflection.CoreTests/FluentReflection.CoreTests.csproj --no-restore
+
+  - name: Run Tests
+    run: dotnet test test/FluentReflection.CoreTests/FluentReflection.CoreTests.csproj --no-build --verbosity detailed
