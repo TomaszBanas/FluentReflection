@@ -1,0 +1,23 @@
+name: Test
+
+on:
+  workflow_call:
+
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0.x
+
+    - name: Restore
+      run: dotnet restore test/FluentReflection.Assembly.EmbeddedResource.SourceGeneratorTests/FluentReflection.Assembly.EmbeddedResource.SourceGeneratorTests.csproj
+    - name: Build Test
+      run: dotnet build test/FluentReflection.Assembly.EmbeddedResource.SourceGeneratorTests/FluentReflection.Assembly.EmbeddedResource.SourceGeneratorTests.csproj --no-restore
+    - name: Test
+      run: dotnet test test/FluentReflection.Assembly.EmbeddedResource.SourceGeneratorTests/FluentReflection.Assembly.EmbeddedResource.SourceGeneratorTests.csproj --no-build --verbosity detailed

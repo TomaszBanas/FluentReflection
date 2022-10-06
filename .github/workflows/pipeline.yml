@@ -1,0 +1,28 @@
+name: Pipeline
+
+on:
+  push:
+    branches: [ "main", "release" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  Build:
+    uses: TomaszBanas/FluentReflection/.github/workflows/build_fluent_reflection_lib.yml@main
+  Test:
+    needs: build_app
+    uses: TomaszBanas/FluentReflection/.github/workflows/test_fluent_reflection_lib.yml@main
+  Deploy:
+    needs: test_app
+    if: github.ref == 'refs/heads/release'
+    uses: TomaszBanas/FluentReflection/.github/workflows/deploy_fluent_reflection_lib.yml@main
+
+  Build:
+    uses: TomaszBanas/FluentReflection/.github/workflows/embedded_source_gen/build.yml@main
+  Test:
+    needs: build_app
+    uses: TomaszBanas/FluentReflection/.github/workflows/embedded_source_gen/test.yml@main
+  Deploy:
+    needs: test_app
+    if: github.ref == 'refs/heads/release'
+    uses: TomaszBanas/FluentReflection/.github/workflows/embedded_source_gen/deploy.yml@main    

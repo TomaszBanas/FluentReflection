@@ -17,7 +17,9 @@ jobs:
 
     - name: Restore
       run: dotnet restore test/FluentReflection.CoreTests/FluentReflection.CoreTests.csproj
-    - name: Build Test
+
+    - name: Build Tests
       run: dotnet build test/FluentReflection.CoreTests/FluentReflection.CoreTests.csproj --no-restore
-    - name: Test
+
+    - name: Run Tests
       run: dotnet test test/FluentReflection.CoreTests/FluentReflection.CoreTests.csproj --no-build --verbosity detailed
