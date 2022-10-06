@@ -29,7 +29,6 @@ name: Build
 
 runs:
   using: "composite"
-  runs-on: ubuntu-latest
 
   steps:
   - name: Say hello
