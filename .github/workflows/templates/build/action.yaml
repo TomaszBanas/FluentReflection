@@ -4,6 +4,7 @@ inputs:
   csprojPath:
     required: true
   dotnetVersion:
+    required: false
     default: 6.0.x
 
 runs:
