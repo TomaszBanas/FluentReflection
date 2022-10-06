@@ -1,0 +1,12 @@
+name: SourceGen
+
+jobs:
+  Build:
+    uses: TomaszBanas/FluentReflection/.github/workflows/embedded_source_gen/build.yml@main
+  Test:
+    needs: build_app
+    uses: TomaszBanas/FluentReflection/.github/workflows/embedded_source_gen/test.yml@main
+  Deploy:
+    needs: test_app
+    if: github.ref == 'refs/heads/release'
+    uses: TomaszBanas/FluentReflection/.github/workflows/embedded_source_gen/deploy.yml@main    
