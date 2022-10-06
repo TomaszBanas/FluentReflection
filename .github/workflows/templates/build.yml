@@ -10,6 +10,8 @@ runs:
   using: "composite"
 
   steps:
+  - name: Say hello
+    run: echo Hello from Octo Organization
   - name: Setup .NET
     uses: actions/setup-dotnet@v2
     with:
@@ -17,4 +19,4 @@ runs:
   - name: Restore
     run: dotnet restore ${{ csprojPath }}
   - name: Build
-    run: dotnet build ${{ csprojPath  }}--no-restore
+    run: dotnet build ${{ csprojPath  }} --no-restore
