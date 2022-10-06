@@ -1,0 +1,21 @@
+name: Build
+
+inputs:
+  csprojPath:
+    required: true
+  dotnetVersion:
+    default: 6.0.x
+
+runs:
+  using: "composite"
+
+  steps:
+  - uses: actions/checkout@v3
+  - name: Setup .NET
+    uses: actions/setup-dotnet@v2
+    with:
+      dotnet-version: ${{ dotnetVersion }}
+  - name: Restore
+    run: dotnet restore ${{ csprojPath }}
+  - name: Build
+    run: dotnet build ${{ csprojPath  }}--no-restore
