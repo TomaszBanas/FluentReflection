@@ -1,3 +1,38 @@
+# name: Build
+
+# on:
+#   workflow_call:
+
+# jobs:
+#   build_abstraction:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     - name: Checkout
+#       uses: actions/checkout@v2
+#       with:
+#         ref: ${{ github.event.workflow_run.head_branch }}
+
+#     - name: Build Abstraction
+#       uses: "./.github/workflows/templates/build"
+#       with:
+#         csprojPath: 'src/FluentReflection.Abstraction/FluentReflection.Abstraction.csproj'
+
+#   build_core:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     - name: Checkout
+#       uses: actions/checkout@v2
+#       with:
+#         ref: ${{ github.event.workflow_run.head_branch }}
+
+#     - name: Build Core
+#       uses: "./.github/workflows/templates/build"
+#       with:
+#         csprojPath: 'src/FluentReflection.Core/FluentReflection.Core.csproj'
+
+
 name: Build
 
 on:
@@ -8,26 +43,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
       with:
-        ref: ${{ github.event.workflow_run.head_branch }}
-
-    - name: Build Abstraction
-      uses: "./.github/workflows/templates/build"
-      with:
-        csprojPath: 'src/FluentReflection.Abstraction/FluentReflection.Abstraction.csproj'
+        dotnet-version: 6.0.x
+    - name: Restore
+      run: dotnet restore src/FluentReflection.Abstraction/FluentReflection.Abstraction.csproj
+    - name: Build
+      run: dotnet build src/FluentReflection.Abstraction/FluentReflection.Abstraction.csproj --no-restore
 
   build_core:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
       with:
-        ref: ${{ github.event.workflow_run.head_branch }}
-
-    - name: Build Core
-      uses: "./.github/workflows/templates/build"
-      with:
-        csprojPath: 'src/FluentReflection.Core/FluentReflection.Core.csproj'
+        dotnet-version: 6.0.x
+    - name: Restore
+      run: dotnet restore src/FluentReflection.Core/FluentReflection.Core.csproj
+    - name: Build
+      run: dotnet build src/FluentReflection.Core/FluentReflection.Core.csproj --no-restore
