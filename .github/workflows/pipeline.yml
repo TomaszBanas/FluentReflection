@@ -8,7 +8,7 @@ on:
 
 jobs:
   FluentReflectionLib:
-    uses: TomaszBanas/FluentReflection/.github/workflows/fluent_reflection_lib/action.yml@main
+    uses: ./.github/workflows/fluent_reflection_lib/action.yml@main
   
   SourceGen:
-    uses: TomaszBanas/FluentReflection/.github/workflows/embedded_source_gen/action.yml@main    
+    uses: ./.github/workflows/embedded_source_gen/action.yml@main    
