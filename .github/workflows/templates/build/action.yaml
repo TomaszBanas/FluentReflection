@@ -12,12 +12,16 @@ runs:
 
   steps:
   - name: Say hello
+    shell: bash
     run: echo Hello from Octo Organization
   - name: Setup .NET
+    shell: bash
     uses: actions/setup-dotnet@v2
     with:
       dotnet-version: ${{ dotnetVersion }}
   - name: Restore
+    shell: bash
     run: dotnet restore ${{ csprojPath }}
   - name: Build
+    shell: bash
     run: dotnet build ${{ csprojPath  }} --no-restore
