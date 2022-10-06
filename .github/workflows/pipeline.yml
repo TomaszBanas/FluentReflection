@@ -7,27 +7,27 @@ on:
     branches: [ "main" ]
 
 jobs:
-  1_FRL:
+  Build_FRL:
     uses: TomaszBanas/FluentReflection/.github/workflows/FRL_build.yml@main
 
-  2_FRL:
-    needs: 1_FRL
+  Test_FRL:
+    needs: Build_FRL
     uses: TomaszBanas/FluentReflection/.github/workflows/FRL_test.yml@main
 
-  3_FRL:
-    needs: 2_FRL
+  Deploy_FRL:
+    needs: Test_FRL
     if: github.ref == 'refs/heads/release'
     uses: TomaszBanas/FluentReflection/.github/workflows/FRL_deploy.yml@main
 
 
-  1_ESG:
+  Build_ESG:
     uses: TomaszBanas/FluentReflection/.github/workflows/ESG_build.yml@main
 
-  2_ESG:
-    needs: 1_ESG
+  Test_ESG:
+    needs: Build_ESG
     uses: TomaszBanas/FluentReflection/.github/workflows/ESG_test.yml@main
 
-  3_ESG:
-    needs: 2_ESG
+  Deploy_ESG:
+    needs: Test_ESG
     if: github.ref == 'refs/heads/release'
     uses: TomaszBanas/FluentReflection/.github/workflows/ESG_deploy.yml@main
