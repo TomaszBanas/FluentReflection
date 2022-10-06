@@ -7,8 +7,29 @@ on:
     branches: [ "main" ]
 
 jobs:
-  FluentReflectionLib:
-    uses: ./.github/workflows/fluent_reflection_lib/action.yml@main
+  Build:
+    uses: TomaszBanas/FluentReflection/.github/workflows/fluent_reflection_libbuild.yml@main
+  Test:
+    needs: build_app
+    uses: TomaszBanas/FluentReflection/.github/workflows/fluent_reflection_libtest.yml@main
+  Deploy:
+    needs: test_app
+    if: github.ref == 'refs/heads/release'
+    uses: TomaszBanas/FluentReflection/.github/workflows/fluent_reflection_libdeploy.yml@main
+
+
+
+# name: Pipeline
+
+# on:
+#   push:
+#     branches: [ "main", "release" ]
+#   pull_request:
+#     branches: [ "main" ]
+
+# jobs:
+#   FluentReflectionLib:
+#     uses: ./.github/workflows/fluent_reflection_lib/action.yml@main
   
-  SourceGen:
-    uses: ./.github/workflows/embedded_source_gen/action.yml@main    
+#   SourceGen:
+#     uses: ./.github/workflows/embedded_source_gen/action.yml@main    
