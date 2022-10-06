@@ -10,10 +10,10 @@ jobs:
   Build:
     uses: TomaszBanas/FluentReflection/.github/workflows/build.yml@main
   Test:
-    needs: build_app
+    needs: Build
     uses: TomaszBanas/FluentReflection/.github/workflows/test.yml@main
   Deploy:
-    needs: test_app
+    needs: Test
     if: github.ref == 'refs/heads/release'
     uses: TomaszBanas/FluentReflection/.github/workflows/deploy.yml@main
 
