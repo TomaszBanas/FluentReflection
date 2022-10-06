@@ -5,9 +5,10 @@ inputs:
     required: true
   dotnetVersion:
     required: false
-    default: "6.0.x"
+    default: '6.0.x'
 
 runs:
+  using: "composite"
 
   steps:
   - name: Say hello

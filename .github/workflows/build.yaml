@@ -16,7 +16,7 @@ jobs:
     - name: Build Abstraction
       uses: "./.github/workflows/templates/build"
       with:
-        csprojPath: "src/FluentReflection.Abstraction/FluentReflection.Abstraction.csproj"
+        csprojPath: 'src/FluentReflection.Abstraction/FluentReflection.Abstraction.csproj'
 
   build_core:
     runs-on: ubuntu-latest
@@ -30,4 +30,4 @@ jobs:
     - name: Build Core
       uses: "./.github/workflows/templates/build"
       with:
-        csprojPath: "src/FluentReflection.Core/FluentReflection.Core.csproj"
+        csprojPath: 'src/FluentReflection.Core/FluentReflection.Core.csproj'
