@@ -7,15 +7,30 @@ on:
     branches: [ "main" ]
 
 jobs:
-  Build:
-    uses: TomaszBanas/FluentReflection/.github/workflows/build.yml@main
-  Test:
-    needs: Build
-    uses: TomaszBanas/FluentReflection/.github/workflows/test.yml@main
-  Deploy:
-    needs: Test
+  Build_FRL:
+    uses: TomaszBanas/FluentReflection/.github/workflows/FRL_build.yml@main
+
+  Test_FRL:
+    needs: Build_FRL
+    uses: TomaszBanas/FluentReflection/.github/workflows/FRL_test.yml@main
+
+  Deploy_FRL:
+    needs: Test_FRL
     if: github.ref == 'refs/heads/release'
-    uses: TomaszBanas/FluentReflection/.github/workflows/deploy.yml@main
+    uses: TomaszBanas/FluentReflection/.github/workflows/FRL_deploy.yml@main
+
+
+  Build_ESG:
+    uses: TomaszBanas/FluentReflection/.github/workflows/ESG_build.yml@main
+
+  Test_ESG:
+    needs: Build_ESG
+    uses: TomaszBanas/FluentReflection/.github/workflows/ESG_test.yml@main
+
+  Deploy_ESG:
+    needs: Test_ESG
+    if: github.ref == 'refs/heads/release'
+    uses: TomaszBanas/FluentReflection/.github/workflows/ESG_deploy.yml@main
 
 
 
