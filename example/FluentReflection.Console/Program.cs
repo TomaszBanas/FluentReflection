@@ -5,7 +5,7 @@
 
 using FluentReflectionEmbeddedResourceGen.FluentReflection.Console;
 
-var a = EmbeddedResources.test2json;
+//var a = EmbeddedResources.test2json;
 
 //var a = new Class1().Test();
 

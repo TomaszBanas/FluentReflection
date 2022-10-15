@@ -19,7 +19,7 @@ namespace FluentReflection.Core.Models.Base
         }
         public string Name => _propertyInfo.Name;
         public new IFluentType Type => new FluentType(_propertyInfo.PropertyType);
-        internal override MemberInfo MemberInfo => _propertyInfo;
         public abstract object Value { get; set; }
+        internal override MemberInfo MemberInfo => _propertyInfo;
     }
 }

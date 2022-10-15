@@ -22,9 +22,10 @@ namespace FluentReflection.Core.Models.Base
         }
 
         public new IFluentType Type => new FluentType(MemberInfo);
-        internal override MemberInfo MemberInfo => _type;
         public List<IFluentProperty> Properties => _cacheUtility.Value(GetProperties);
         public List<IFluentMethod> Methods => _cacheUtility.Value(GetMethods);
+
+        internal override MemberInfo MemberInfo => _type;
         internal abstract List<IFluentProperty> GetProperties();
         internal abstract List<IFluentMethod> GetMethods();
     }

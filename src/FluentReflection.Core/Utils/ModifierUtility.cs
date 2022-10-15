@@ -11,10 +11,10 @@ namespace FluentReflection.Core.Utils
     {
         internal static Modifier ToModifiers(MemberInfo memberInfo) => memberInfo switch
         {
-            Type type =>                 ToModifiers(type),
-            MethodInfo methodInfo =>     ToModifiers(methodInfo),
-            PropertyInfo propertyInfo => ToModifiers(propertyInfo),
-            _ =>                         throw new NotImplementedException()
+            Type type =>                                                    ToModifiers(type),
+            MethodInfo methodInfo =>                                        ToModifiers(methodInfo),
+            PropertyInfo propertyInfo =>                                    ToModifiers(propertyInfo),
+            _ =>                                                            throw new NotImplementedException()
         };
 
         private static Modifier ToModifiers(Type type)
@@ -31,14 +31,14 @@ namespace FluentReflection.Core.Utils
         private static Modifier ToModifiers(MethodInfo method)
         {
             var result = Modifier.None;
-            if ( method.IsPublic )                       result |= Modifier.Public;
-            if ( method.IsPrivate )                      result |= Modifier.Private;
-            if ( method.IsStatic )                       result |= Modifier.Static;
-            if ( method.ReturnType == typeof(Task) )     result |= Modifier.Async;
-            if ( method.IsVirtual )                      result |= Modifier.Virtual;
-            if ( method.IsAbstract )                     result |= Modifier.Abstract;
-            if ( !method.IsPublic && !method.IsPrivate ) result |= Modifier.Internal;
-            if ( method.IsConstructor )                  result |= Modifier.Constructor;
+            if ( method.IsPublic )                                          result |= Modifier.Public;
+            if ( method.IsPrivate )                                         result |= Modifier.Private;
+            if ( method.IsStatic )                                          result |= Modifier.Static;
+            if ( method.ReturnType == typeof(Task) )                        result |= Modifier.Async;
+            if ( method.IsVirtual )                                         result |= Modifier.Virtual;
+            if ( method.IsAbstract )                                        result |= Modifier.Abstract;
+            if ( !method.IsPublic && !method.IsPrivate )                    result |= Modifier.Internal;
+            if ( method.IsConstructor )                                     result |= Modifier.Constructor;
             return result;
         }
 

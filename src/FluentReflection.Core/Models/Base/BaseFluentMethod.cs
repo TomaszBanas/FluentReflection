@@ -18,17 +18,13 @@ namespace FluentReflection.Core.Models.Base
         {
             _methodInfo = methodInfo;
         }
-
         public string Name => _methodInfo.Name;
-
         public IFluentType ReturnType => new FluentType(_methodInfo.ReturnType);
-
         public List<IFluentParameter> Parameters => _cacheUtility.Value(GetParameters);
-
-        internal override MemberInfo MemberInfo => _methodInfo;
-
         public abstract object Invoke(params object[] parameters);
         public abstract Task<object> InvokeAsync(params object[] parameters);
+
+        internal override MemberInfo MemberInfo => _methodInfo;
 
         private List<IFluentParameter> GetParameters()
         {

@@ -12,19 +12,9 @@
 	<ItemGroup>
 		<None Remove="test1.json" />
 		<None Remove="test2.json" />
-		<None Remove="test3.json" />
-		<None Remove="test4.json" />
-		<None Remove="test5.json" />
-		<None Remove="test6.json" />
-		<None Remove="test7.json" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<EmbeddedResource Include="test3.json" />
-		<EmbeddedResource Include="test7.json" />
-		<EmbeddedResource Include="test6.json" />
-		<EmbeddedResource Include="test5.json" />
-		<EmbeddedResource Include="test4.json" />
 		<EmbeddedResource Include="test2.json" />
 		<EmbeddedResource Include="test1.json" />
 	</ItemGroup>
